@@ -1,5 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:store_design/ad_post_page.dart';
+import 'package:store_design/city_page.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -9,7 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  var replaceCityIcon = false;
+  var replaceCityIcon = true;
 
   var _adsList = [
     'https://media.istockphoto.com/id/177709534/photo/sold-home-for-sale-real-estate-sign-and-house.jpg?s=612x612&w=0&k=20&c=kPJTPxQykEJ71ZWeFqNH5lWHVA-GhK2-4ppv1sGbtgI=',
@@ -17,28 +19,51 @@ class _HomeState extends State<Home> {
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7V1SwHu27hcmWBuf4HTDOGp-QjNnwKonSOQ&usqp=CAU',
   ];
 
-  var adStarIsIcon = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('assets/logo-no-background.png', width: 150),
+        title: Transform.scale(
+            scale: 1.1, child: Image.asset('assets/waseet.png', width: 200)),
         centerTitle: true,
+        leadingWidth: 90,
         leading: Row(
           mainAxisSize: MainAxisSize.min,
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(right: 16),
-              child: CircleAvatar(
-                maxRadius: 20,
-                backgroundImage: NetworkImage(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU'),
-              ),
+          children: const [
+            SizedBox(
+              width: 8,
+            ),  Icon(
+              Icons.menu,
+              size: 30,
+            ),SizedBox(
+              width: 8,
+            ),
+            CircleAvatar(
+              maxRadius: 22,
+              backgroundImage: NetworkImage(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU'),
             ),
           ],
         ),
         actions: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.location_on_outlined,
+                color: Theme.of(context).colorScheme.primary,
+                size: 28,
+              ),
+              Text(
+                'أعزاز',
+                style: TextStyle(
+                    fontSize: 8, fontWeight: FontWeight.bold, letterSpacing: 1),
+              )
+            ],
+          ),
+          SizedBox(
+            width: 16,
+          ),
           Stack(
             alignment: Alignment.center,
             children: [
@@ -50,8 +75,11 @@ class _HomeState extends State<Home> {
                   decoration: const BoxDecoration(
                       shape: BoxShape.circle, color: Colors.red),
                   child: const Text(
-                    '2',
-                    style: TextStyle(color: Colors.white, fontSize: 8),
+                    '12',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               )
@@ -77,15 +105,14 @@ class _HomeState extends State<Home> {
             ),
           ),
           onPressed: () {
-            setState(() {
-              adStarIsIcon = !adStarIsIcon;
-            });
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => AddPostPage()));
           },
           icon: Image.asset(
             'assets/megaphone.png',
             width: 35,
             height: 35,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.onPrimary,
           ),
           label: const Text('أضف إعلانك',
               style: TextStyle(
@@ -97,7 +124,7 @@ class _HomeState extends State<Home> {
       body: Column(
         children: [
           const SizedBox(
-            height: 32,
+            height: 16,
           ),
           Expanded(
             child: Column(
@@ -135,7 +162,13 @@ class _HomeState extends State<Home> {
                           borderRadius: BorderRadius.circular(10),
                           onTap: () {
                             setState(() {
-                              replaceCityIcon = !replaceCityIcon;
+                              // replaceCityIcon = !replaceCityIcon;
+                              //open city page
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const CityPage('مدينتي')));
                             });
                           },
                           child: Stack(
@@ -147,8 +180,8 @@ class _HomeState extends State<Home> {
                                     replaceCityIcon
                                         ? 'assets/city.png'
                                         : 'assets/cityscape.png',
-                                    width: 100,
-                                    height: 100,
+                                    width: 120,
+                                    height: 120,
                                     color: Colors.white.withOpacity(0.1),
                                   )),
                               Padding(
@@ -160,8 +193,8 @@ class _HomeState extends State<Home> {
                                       replaceCityIcon
                                           ? 'assets/city.png'
                                           : 'assets/cityscape.png',
-                                      width: 60,
-                                      height: 60,
+                                      width: 85,
+                                      height: 85,
                                       color: Colors.white,
                                     ),
                                     const SizedBox(
@@ -221,8 +254,8 @@ class _HomeState extends State<Home> {
                                 right: 25,
                                 child: Image.asset(
                                   'assets/world-humanitarian-day.png',
-                                  width: 100,
-                                  height: 100,
+                                  width: 120,
+                                  height: 120,
                                   color: Colors.white.withOpacity(0.1),
                                 )),
                             Padding(
@@ -232,8 +265,8 @@ class _HomeState extends State<Home> {
                                 children: [
                                   Image.asset(
                                     'assets/world-humanitarian-day.png',
-                                    width: 60,
-                                    height: 60,
+                                    width: 85,
+                                    height: 85,
                                     color: Colors.white,
                                   ),
                                   const SizedBox(
@@ -292,8 +325,8 @@ class _HomeState extends State<Home> {
                                 right: 25,
                                 child: Image.asset(
                                   'assets/business.png',
-                                  width: 100,
-                                  height: 100,
+                                  width: 120,
+                                  height: 120,
                                   color: Colors.white.withOpacity(0.15),
                                 )),
                             Padding(
@@ -303,8 +336,8 @@ class _HomeState extends State<Home> {
                                 children: [
                                   Image.asset(
                                     'assets/business.png',
-                                    width: 60,
-                                    height: 60,
+                                    width: 85,
+                                    height: 85,
                                     color: Colors.white,
                                   ),
                                   const SizedBox(
@@ -363,8 +396,8 @@ class _HomeState extends State<Home> {
                                 right: 25,
                                 child: Image.asset(
                                   'assets/asset.png',
-                                  width: 100,
-                                  height: 100,
+                                  width: 120,
+                                  height: 120,
                                   color: Colors.white.withOpacity(0.1),
                                 )),
                             Padding(
@@ -374,8 +407,8 @@ class _HomeState extends State<Home> {
                                 children: [
                                   Image.asset(
                                     'assets/asset.png',
-                                    width: 60,
-                                    height: 60,
+                                    width: 85,
+                                    height: 85,
                                     color: Colors.white,
                                   ),
                                   const SizedBox(
@@ -412,8 +445,8 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          Container(
-            height: 180,
+          AspectRatio(
+            aspectRatio: 2/1,
             child: Swiper(
               itemCount: 3,
               autoplay: true,
@@ -430,46 +463,36 @@ class _HomeState extends State<Home> {
                               image: NetworkImage(_adsList[index]),
                               fit: BoxFit.cover)),
                     ),
-                    adStarIsIcon
-                        ? Positioned(
-                            top: -2,
-                            right: 8,
-                            child: Image.asset(
-                              'assets/favorite.png',
-                              width: 40,
-                              height: 40,
+                    Positioned(
+                      top: 8,
+                      right: 8,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(8)),
+                        child: Row(
+                          children: const [
+                            Icon(
+                              Icons.star,
+                              color: Colors.white,
+                              size: 16,
                             ),
-                          )
-                        : Positioned(
-                            top: 8,
-                            right: 8,
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 4),
-                              decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  borderRadius: BorderRadius.circular(8)),
-                              child: Row(
-                                children: [
-                                  const Icon(
-                                    Icons.star,
-                                    color: Colors.white,
-                                    size: 16,
-                                  ),
-                                  const SizedBox(
-                                    width: 4,
-                                  ),
-                                  const Text(
-                                    'مميز',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
+                            SizedBox(
+                              width: 4,
                             ),
-                          )
+                            Text(
+                              'إعلان مميز',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
                   ],
                 );
               },
@@ -478,10 +501,11 @@ class _HomeState extends State<Home> {
             ),
           ),
           const SizedBox(
-            height: 16,
+            height: 32,
           ),
         ],
       ),
     );
   }
 }
+

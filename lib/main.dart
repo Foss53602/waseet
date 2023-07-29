@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: ThemeData(
           appBarTheme: const AppBarTheme(
-            backgroundColor: Color(0xFFf6f6f6),
+            backgroundColor: Color(0xFFececec),
           ),
           useMaterial3: true,
           colorScheme: lightColorScheme,

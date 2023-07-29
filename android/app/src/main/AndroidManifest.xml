@@ -2,7 +2,7 @@
     package="com.example.store_design">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="store_design"
+        android:label="waseet_design"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
