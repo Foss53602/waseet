@@ -2,6 +2,8 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:store_design/ad_post_page.dart';
 import 'package:store_design/city_page.dart';
+import 'package:store_design/login_page.dart';
+import 'package:store_design/profile_page.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -19,9 +21,13 @@ class _HomeState extends State<Home> {
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7V1SwHu27hcmWBuf4HTDOGp-QjNnwKonSOQ&usqp=CAU',
   ];
 
+  var _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: _buildDrawer(),
       appBar: AppBar(
         title: Transform.scale(
             scale: 1.1, child: Image.asset('assets/waseet.png', width: 200)),
@@ -29,19 +35,34 @@ class _HomeState extends State<Home> {
         leadingWidth: 90,
         leading: Row(
           mainAxisSize: MainAxisSize.min,
-          children: const [
+          children: [
             SizedBox(
               width: 8,
-            ),  Icon(
-              Icons.menu,
-              size: 30,
-            ),SizedBox(
+            ),
+            InkWell(
+              onTap: () {
+                setState(() {
+                  _scaffoldKey.currentState!.openDrawer();
+                });
+              },
+              child: Icon(
+                Icons.menu,
+                size: 30,
+              ),
+            ),
+            SizedBox(
               width: 8,
             ),
-            CircleAvatar(
-              maxRadius: 22,
-              backgroundImage: NetworkImage(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU'),
+            InkResponse(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));
+              },
+              child: CircleAvatar(
+                maxRadius: 22,
+                backgroundImage: NetworkImage(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU'),
+              ),
             ),
           ],
         ),
@@ -105,8 +126,8 @@ class _HomeState extends State<Home> {
             ),
           ),
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => AddPostPage()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => AddPostPage()));
           },
           icon: Image.asset(
             'assets/megaphone.png',
@@ -446,7 +467,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           AspectRatio(
-            aspectRatio: 2/1,
+            aspectRatio: 2 / 1,
             child: Swiper(
               itemCount: 3,
               autoplay: true,
@@ -507,5 +528,90 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-}
 
+  Widget _buildDrawer() {
+    return Drawer(
+      child: Column(
+        children: [
+          DrawerHeader(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const CircleAvatar(
+                  maxRadius: 40,
+                  backgroundImage: NetworkImage(
+                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&usqp=CAU'),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                const Text(
+                  'محمد عبد الله',
+                  style: TextStyle(fontSize: 24),
+                ),
+              ],
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.person),
+            title: const Text('الملف الشخصي'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('الإعدادات'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.info),
+            title: const Text('عن التطبيق'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.share),
+            title: const Text('مشاركة التطبيق'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.star),
+            title: const Text('تقييم التطبيق'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.exit_to_app),
+            title: const Text('تسجيل الخروج'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const LoginPage();
+              }));
+            },
+          ),
+          const Spacer(),
+          const Divider(),
+          const SizedBox(
+            height: 8,
+          ),
+          const Text('الإصدار 1.0.0'),
+          const SizedBox(
+            height: 16,
+          ),
+        ],
+      ),
+    );
+  }
+}
