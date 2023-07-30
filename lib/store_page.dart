@@ -101,52 +101,36 @@ class _StorePageState extends State<StorePage> {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        Icon(Icons.access_time_rounded,
-                            color: Theme.of(context).colorScheme.secondary),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          'منذ شهر تقريباً',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      ],
+                    ListTile(
+                      leading: Icon(
+                        Icons.access_time_rounded,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                      title: Text(
+                        'منذ شهر تقريباً',
+                      ),
                     ),
-                    SizedBox(
-                      height: 8,
+                    ListTile(
+                      leading: Icon(
+                        Icons.location_on_outlined,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                      title: Text(
+                        'الباب - دوار الراعي',
+                      ),
                     ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.location_on_outlined,
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          'الباب - دوار الراعي',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.phone_outlined,
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text('90225441523+',
-                            style: TextStyle(fontWeight: FontWeight.bold))
-                      ],
+                    ListTile(
+                      leading: Icon(
+                        Icons.phone,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        size: 16,
+                      ),
+                      title: Text(
+                        '079 999 9999',
+                      ),
                     ),
                   ],
                 ),
@@ -160,7 +144,9 @@ class _StorePageState extends State<StorePage> {
                   },
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   border:
-                      TableBorder.all(borderRadius: BorderRadius.circular(10)),
+                      TableBorder.all(borderRadius: BorderRadius.circular(10),
+                      color: Theme.of(context).colorScheme.secondary,
+                      ),
                   children: [
                     TableRow(children: [
                       Padding(

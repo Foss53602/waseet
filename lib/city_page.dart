@@ -974,9 +974,10 @@ class _CityPageState extends State<CityPage> {
                             ),
                             Row(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.location_on_outlined,
                                   size: 16,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                                 const SizedBox(
                                   width: 4,
@@ -991,9 +992,10 @@ class _CityPageState extends State<CityPage> {
                             ),
                             Row(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.phone,
                                   size: 16,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                                 const SizedBox(
                                   width: 4,
@@ -1008,9 +1010,10 @@ class _CityPageState extends State<CityPage> {
                             ),
                             Row(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.access_time,
                                   size: 16,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                                 const SizedBox(
                                   width: 4,
