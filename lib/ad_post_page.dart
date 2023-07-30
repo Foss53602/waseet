@@ -315,6 +315,8 @@ class _AddPostPageState extends State<AddPostPage> {
 
   String? _selectedCategory;
 
+  bool _chooseSeconde = false;
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -397,6 +399,89 @@ class _AddPostPageState extends State<AddPostPage> {
                           },
                           onChanged: (value) {},
                         )),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                  ],
+                ),
+              if (_selectedCategory != null && _selectedCategory == 'مهني')
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: AnimatedContainer(
+                                margin: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: !_chooseSeconde
+                                      ? Theme.of(context)
+                                          .colorScheme
+                                          .primary
+                                          .withOpacity(0.3)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                duration: Duration(milliseconds: 500),
+                                child: Center(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _chooseSeconde = false;
+                                      });
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16),
+                                      child: Text('ابحث عن وظيفة',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold)),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: AnimatedContainer(
+                                margin: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: _chooseSeconde
+                                      ? Theme.of(context)
+                                          .colorScheme
+                                          .primary
+                                          .withOpacity(0.3)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                duration: Duration(milliseconds: 500),
+                                child: Center(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _chooseSeconde = true;
+                                      });
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16),
+                                      child: Text(
+                                        'ابحث عن موظف',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                     const SizedBox(
                       height: 16,
                     ),
@@ -596,17 +681,23 @@ class _AddPostPageState extends State<AddPostPage> {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return AlertDialog(
-                        title: const Text('تم إضافة الإعلان'),
-                        content: const Text('تم إضافة الإعلان بنجاح'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('حسناً'),
-                          ),
-                        ],
+                      return Directionality(
+                        textDirection: TextDirection.rtl,
+                        child: AlertDialog(
+                          actionsAlignment: MainAxisAlignment.start,
+                          title: const Text('تم إضافة الإعلان'),
+                          icon: const Icon(Icons.check_circle_outline,
+                              size: 50, color: Colors.green),
+                          content: const Text('تم إضافة إعلانك بنجاح'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('حسناً'),
+                            ),
+                          ],
+                        ),
                       );
                     },
                   );

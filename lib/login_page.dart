@@ -24,9 +24,9 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 16,
               ),
-              Image.asset('assets/waseet.png', width: 300),
+              Image.asset('assets/waseet.png', width: 200),
               SizedBox(
-                height: 16,
+                height: 64,
               ),
               Text(
                 'تسجيل الدخول',

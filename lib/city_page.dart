@@ -1,5 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:store_design/ad_post_page.dart';
 import 'package:store_design/store_page.dart';
 
 class CityPage extends StatefulWidget {
@@ -27,6 +28,15 @@ class _CityPageState extends State<CityPage> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        floatingActionButton: devices
+            ? FloatingActionButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AddPostPage()));
+                },
+                child: const Icon(Icons.add),
+              )
+            : null,
         appBar: AppBar(
           title: Row(
             mainAxisSize: MainAxisSize.min,
@@ -87,538 +97,527 @@ class _CityPageState extends State<CityPage> {
         ),
         body: shooping
             ? _drawShoopingWidgte()
-            : SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.all(8),
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.lightBlue.shade700,
-                                  Colors.lightBlue.shade900,
-                                ],
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
+            : Column(
+                children: [
+                  Spacer(),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.lightBlue.shade700,
+                                Colors.lightBlue.shade900,
+                              ],
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.lightBlue.withOpacity(0.5),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.lightBlue.withOpacity(0.5),
-                                  blurRadius: 10,
-                                  offset: const Offset(0, 5),
-                                ),
-                              ],
-                            ),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                    top: 25,
-                                    right: 25,
-                                    child: Image.asset(
-                                      'assets/phonendoscope.png',
-                                      width: 90,
-                                      height: 90,
-                                      color: Colors.white.withOpacity(0.1),
-                                    )),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Image.asset(
-                                        'assets/phonendoscope.png',
-                                        width: 75,
-                                        height: 75,
-                                        color: Colors.white,
-                                      ),
-                                      const SizedBox(
-                                        height: 16,
-                                      ),
-                                      const Text(
-                                        'طبي',
-                                        style: TextStyle(
-                                          fontSize: 28,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Positioned(
-                                    bottom: 8,
-                                    left: 8,
-                                    child: Container(
-                                      height: 20,
-                                      width: 20,
-                                      child: Image.asset(
-                                        'assets/back.png',
-                                        color: Colors.white,
-                                      ),
-                                    ))
-                              ],
-                            ),
+                            ],
                           ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.all(8),
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.orange.shade700,
-                                  Colors.orange.shade900,
-                                ],
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color:
-                                      Colors.orange.shade900.withOpacity(0.5),
-                                  blurRadius: 10,
-                                  offset: const Offset(0, 5),
-                                ),
-                              ],
-                            ),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                    top: 25,
-                                    right: 25,
-                                    child: Image.asset(
-                                      'assets/engineer.png',
-                                      width: 90,
-                                      height: 90,
-                                      color: Colors.white.withOpacity(0.1),
-                                    )),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Image.asset(
-                                        'assets/engineer.png',
-                                        width: 75,
-                                        height: 75,
-                                        color: Colors.white,
-                                      ),
-                                      const SizedBox(
-                                        height: 16,
-                                      ),
-                                      const Text(
-                                        'خدمات',
-                                        style: TextStyle(
-                                          fontSize: 28,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Positioned(
-                                    bottom: 8,
-                                    left: 8,
-                                    child: Container(
-                                      height: 20,
-                                      width: 20,
-                                      child: Image.asset(
-                                        'assets/back.png',
-                                        color: Colors.white,
-                                      ),
-                                    ))
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.all(8),
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.teal.shade700,
-                                  Colors.teal.shade900,
-                                ],
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.teal.shade900.withOpacity(0.5),
-                                  blurRadius: 10,
-                                  offset: const Offset(0, 5),
-                                ),
-                              ],
-                            ),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                    top: 25,
-                                    right: 25,
-                                    child: Image.asset(
-                                      'assets/calendar.png',
-                                      width: 90,
-                                      height: 90,
-                                      color: Colors.white.withOpacity(0.1),
-                                    )),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Image.asset(
-                                        'assets/calendar.png',
-                                        width: 75,
-                                        height: 75,
-                                        color: Colors.white,
-                                      ),
-                                      const SizedBox(
-                                        height: 16,
-                                      ),
-                                      const Text(
-                                        'حجوزات',
-                                        style: TextStyle(
-                                          fontSize: 28,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Positioned(
-                                    bottom: 8,
-                                    left: 8,
-                                    child: Container(
-                                      height: 20,
-                                      width: 20,
-                                      child: Image.asset(
-                                        'assets/back.png',
-                                        color: Colors.white,
-                                      ),
-                                    )),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.all(8),
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.lime.shade700,
-                                  Colors.lime.shade900,
-                                ],
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.lime.shade900.withOpacity(0.5),
-                                  blurRadius: 10,
-                                  offset: const Offset(0, 5),
-                                ),
-                              ],
-                            ),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                    top: 25,
-                                    right: 25,
-                                    child: Image.asset(
-                                      'assets/invoice.png',
-                                      width: 90,
-                                      height: 90,
-                                      color: Colors.white.withOpacity(0.1),
-                                    )),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Image.asset(
-                                        'assets/invoice.png',
-                                        width: 75,
-                                        height: 75,
-                                        color: Colors.white,
-                                      ),
-                                      const SizedBox(
-                                        height: 16,
-                                      ),
-                                      const Text(
-                                        'فواتير',
-                                        style: TextStyle(
-                                          fontSize: 28,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Positioned(
-                                    bottom: 8,
-                                    left: 8,
-                                    child: Container(
-                                      height: 20,
-                                      width: 20,
-                                      child: Image.asset(
-                                        'assets/back.png',
-                                        color: Colors.white,
-                                      ),
-                                    )),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.all(8),
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.lightGreen.shade700,
-                                  Colors.lightGreen.shade900,
-                                ],
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.lightGreen.shade900
-                                      .withOpacity(0.5),
-                                  blurRadius: 10,
-                                  offset: const Offset(0, 5),
-                                ),
-                              ],
-                            ),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                    top: 25,
-                                    right: 25,
-                                    child: Image.asset(
-                                      'assets/trolley.png',
-                                      width: 90,
-                                      height: 90,
-                                      color: Colors.white.withOpacity(0.1),
-                                    )),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        shooping = true;
-                                      });
-                                    },
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Image.asset(
-                                          'assets/trolley.png',
-                                          width: 75,
-                                          height: 75,
-                                          color: Colors.white,
-                                        ),
-                                        const SizedBox(
-                                          height: 16,
-                                        ),
-                                        const Text(
-                                          'تسوق',
-                                          style: TextStyle(
-                                            fontSize: 28,
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                    bottom: 8,
-                                    left: 8,
-                                    child: Container(
-                                      height: 20,
-                                      width: 20,
-                                      child: Image.asset(
-                                        'assets/back.png',
-                                        color: Colors.white,
-                                      ),
-                                    ))
-                              ],
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsets.all(8),
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.blueGrey.shade700,
-                                  Colors.blueGrey.shade900,
-                                ],
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft,
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color:
-                                      Colors.blueGrey.shade900.withOpacity(0.5),
-                                  blurRadius: 10,
-                                  offset: const Offset(0, 5),
-                                ),
-                              ],
-                            ),
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                    top: 25,
-                                    right: 25,
-                                    child: Image.asset(
-                                      'assets/delivery-bike.png',
-                                      width: 90,
-                                      height: 90,
-                                      color: Colors.white.withOpacity(0.1),
-                                    )),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Image.asset(
-                                        'assets/delivery-bike.png',
-                                        width: 75,
-                                        height: 75,
-                                        color: Colors.white,
-                                      ),
-                                      const SizedBox(
-                                        height: 16,
-                                      ),
-                                      const Text(
-                                        'توصيل',
-                                        style: TextStyle(
-                                          fontSize: 28,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Positioned(
-                                    bottom: 8,
-                                    left: 8,
-                                    child: Container(
-                                      height: 20,
-                                      width: 20,
-                                      child: Image.asset(
-                                        'assets/back.png',
-                                        color: Colors.white,
-                                      ),
-                                    ))
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    AspectRatio(
-                      aspectRatio: 2 / 1,
-                      child: Swiper(
-                        itemCount: 3,
-                        autoplay: true,
-                        duration: 900,
-                        autoplayDelay: 5000,
-                        itemBuilder: (context, index) {
-                          return Stack(
+                          child: Stack(
                             children: [
-                              Container(
-                                margin: const EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    image: DecorationImage(
-                                        image: NetworkImage(_adsList[index]),
-                                        fit: BoxFit.cover)),
+                              Positioned(
+                                  top: 25,
+                                  right: 25,
+                                  child: Image.asset(
+                                    'assets/phonendoscope.png',
+                                    width: 90,
+                                    height: 90,
+                                    color: Colors.white.withOpacity(0.1),
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      'assets/phonendoscope.png',
+                                      width: 75,
+                                      height: 75,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                                    const Text(
+                                      'طبي',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                               Positioned(
-                                top: 8,
-                                right: 8,
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 8, vertical: 4),
-                                  decoration: BoxDecoration(
-                                      color: Colors.red,
-                                      borderRadius: BorderRadius.circular(8)),
-                                  child: Row(
-                                    children: const [
-                                      Icon(
-                                        Icons.star,
+                                  bottom: 8,
+                                  left: 8,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    child: Image.asset(
+                                      'assets/back.png',
+                                      color: Colors.white,
+                                    ),
+                                  ))
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.orange.shade700,
+                                Colors.orange.shade900,
+                              ],
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.orange.shade900.withOpacity(0.5),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                  top: 25,
+                                  right: 25,
+                                  child: Image.asset(
+                                    'assets/engineer.png',
+                                    width: 90,
+                                    height: 90,
+                                    color: Colors.white.withOpacity(0.1),
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      'assets/engineer.png',
+                                      width: 75,
+                                      height: 75,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                                    const Text(
+                                      'خدمات',
+                                      style: TextStyle(
+                                        fontSize: 28,
                                         color: Colors.white,
-                                        size: 16,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                      SizedBox(
-                                        width: 4,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Positioned(
+                                  bottom: 8,
+                                  left: 8,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    child: Image.asset(
+                                      'assets/back.png',
+                                      color: Colors.white,
+                                    ),
+                                  ))
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.teal.shade700,
+                                Colors.teal.shade900,
+                              ],
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.teal.shade900.withOpacity(0.5),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                  top: 25,
+                                  right: 25,
+                                  child: Image.asset(
+                                    'assets/calendar.png',
+                                    width: 90,
+                                    height: 90,
+                                    color: Colors.white.withOpacity(0.1),
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      'assets/calendar.png',
+                                      width: 75,
+                                      height: 75,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                                    const Text(
+                                      'حجوزات',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                      Text(
-                                        'إعلان مميز',
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Positioned(
+                                  bottom: 8,
+                                  left: 8,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    child: Image.asset(
+                                      'assets/back.png',
+                                      color: Colors.white,
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.lime.shade700,
+                                Colors.lime.shade900,
+                              ],
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.lime.shade900.withOpacity(0.5),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                  top: 25,
+                                  right: 25,
+                                  child: Image.asset(
+                                    'assets/invoice.png',
+                                    width: 90,
+                                    height: 90,
+                                    color: Colors.white.withOpacity(0.1),
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      'assets/invoice.png',
+                                      width: 75,
+                                      height: 75,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                                    const Text(
+                                      'فواتير',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Positioned(
+                                  bottom: 8,
+                                  left: 8,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    child: Image.asset(
+                                      'assets/back.png',
+                                      color: Colors.white,
+                                    ),
+                                  )),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.lightGreen.shade700,
+                                Colors.lightGreen.shade900,
+                              ],
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color:
+                                    Colors.lightGreen.shade900.withOpacity(0.5),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                  top: 25,
+                                  right: 25,
+                                  child: Image.asset(
+                                    'assets/trolley.png',
+                                    width: 90,
+                                    height: 90,
+                                    color: Colors.white.withOpacity(0.1),
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      shooping = true;
+                                    });
+                                  },
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Image.asset(
+                                        'assets/trolley.png',
+                                        width: 75,
+                                        height: 75,
+                                        color: Colors.white,
+                                      ),
+                                      const SizedBox(
+                                        height: 16,
+                                      ),
+                                      const Text(
+                                        'تسوق',
                                         style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold),
+                                          fontSize: 28,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ],
                                   ),
                                 ),
-                              )
+                              ),
+                              Positioned(
+                                  bottom: 8,
+                                  left: 8,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    child: Image.asset(
+                                      'assets/back.png',
+                                      color: Colors.white,
+                                    ),
+                                  ))
                             ],
-                          );
-                        },
-                        viewportFraction: 0.8,
-                        scale: 0.9,
+                          ),
+                        ),
                       ),
+                      Expanded(
+                        child: Container(
+                          margin: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.blueGrey.shade700,
+                                Colors.blueGrey.shade900,
+                              ],
+                              begin: Alignment.topRight,
+                              end: Alignment.bottomLeft,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color:
+                                    Colors.blueGrey.shade900.withOpacity(0.5),
+                                blurRadius: 10,
+                                offset: const Offset(0, 5),
+                              ),
+                            ],
+                          ),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                  top: 25,
+                                  right: 25,
+                                  child: Image.asset(
+                                    'assets/delivery-bike.png',
+                                    width: 90,
+                                    height: 90,
+                                    color: Colors.white.withOpacity(0.1),
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      'assets/delivery-bike.png',
+                                      width: 75,
+                                      height: 75,
+                                      color: Colors.white,
+                                    ),
+                                    const SizedBox(
+                                      height: 16,
+                                    ),
+                                    const Text(
+                                      'توصيل',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Positioned(
+                                  bottom: 8,
+                                  left: 8,
+                                  child: Container(
+                                    height: 20,
+                                    width: 20,
+                                    child: Image.asset(
+                                      'assets/back.png',
+                                      color: Colors.white,
+                                    ),
+                                  ))
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                  AspectRatio(
+                    aspectRatio: 2 / 1,
+                    child: Swiper(
+                      itemCount: 3,
+                      autoplay: true,
+                      duration: 900,
+                      autoplayDelay: 5000,
+                      itemBuilder: (context, index) {
+                        return Stack(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  image: DecorationImage(
+                                      image: NetworkImage(_adsList[index]),
+                                      fit: BoxFit.cover)),
+                            ),
+                            Positioned(
+                              top: 8,
+                              right: 8,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 8, vertical: 4),
+                                decoration: BoxDecoration(
+                                    color: Colors.red,
+                                    borderRadius: BorderRadius.circular(8)),
+                                child: Row(
+                                  children: const [
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.white,
+                                      size: 16,
+                                    ),
+                                    SizedBox(
+                                      width: 4,
+                                    ),
+                                    Text(
+                                      'إعلان مميز',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        );
+                      },
+                      viewportFraction: 0.8,
+                      scale: 0.9,
                     ),
-                  ],
-                ),
+                  ),
+                  Spacer(),
+                ],
               ),
       ),
     );

@@ -23,9 +23,9 @@ class _CreateAccountState extends State<CreateAccount> {
               SizedBox(
                 height: 16,
               ),
-              Image.asset('assets/waseet.png', width: 300),
+              Image.asset('assets/waseet.png', width: 200),
               SizedBox(
-                height: 16,
+                height: 64,
               ),
               Text(
                 'إنشاء حساب',
@@ -104,9 +104,7 @@ class _CreateAccountState extends State<CreateAccount> {
                 children: [
                   Text('لديك حساب؟'),
                   TextButton(
-                    onPressed: () {
-
-                    },
+                    onPressed: () {},
                     child: Text('تسجيل الدخول'),
                   ),
                 ],
