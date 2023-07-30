@@ -69,7 +69,23 @@ class _HomeState extends State<Home> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset('assets/waseet.png', width: 150),
+                    Stack(
+                      children: [
+                        Positioned(
+                          bottom: -4,
+                          right: -4,
+                          child: Image.asset(
+                            'assets/waseet.png',
+                            width: 150,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .outline
+                                .withOpacity(0.1),
+                          ),
+                        ),
+                        Image.asset('assets/waseet.png', width: 150),
+                      ],
+                    ),
                     Text(
                       'وسيطك الموثوق، أضف واستفد!',
                       style: TextStyle(
@@ -81,6 +97,7 @@ class _HomeState extends State<Home> {
                 ),
                 const Spacer(),
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
                       height: 16,
@@ -130,9 +147,11 @@ class _HomeState extends State<Home> {
                           width: 4,
                         ),
                         Text(
-                          'الرياض',
+                          'أعـزاز',
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.primary,
+                            letterSpacing: 1,
+                            fontSize: 16,
                           ),
                         ),
                       ],

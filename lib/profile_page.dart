@@ -82,8 +82,44 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       // notification tab
                       Container(
-                        child: Center(
-                          child: Text('الإشعارات'),
+                        margin: EdgeInsets.all(8),
+                        child: ListView.builder(
+                          itemBuilder: (context, index) {
+                            return Card(
+                              child: ListTile(
+                                minLeadingWidth: 0,
+                                leading: Icon(Icons.notifications_active,
+                                    color: index % 2 == 0
+                                        ? Colors.red
+                                        : Colors.green),
+                                title: Text(
+                                    'نص الإشعار يظهر هنا يحيث لا يتجاوز سطرين ما يقارب 50 محرف',
+                                    style: TextStyle(fontSize: 14)),
+                                trailing: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    //icon
+                                    Icon(Icons.access_time,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .outline,
+                                        size: 16),
+                                    SizedBox(height: 4),
+                                    Text(
+                                        index % 2 == 0
+                                            ? '30/7/2023'
+                                            : 'منذ 5 دقائق',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .outline)),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                          itemCount: 15,
                         ),
                       ),
                     ],
