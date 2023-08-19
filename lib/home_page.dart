@@ -1,5 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:store_design/IntroductionPage.dart';
 import 'package:store_design/ad_post_page.dart';
 import 'package:store_design/city_page.dart';
 import 'package:store_design/login_page.dart';
@@ -69,22 +70,31 @@ class _HomeState extends State<Home> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Stack(
-                      children: [
-                        Positioned(
-                          bottom: -4,
-                          right: -4,
-                          child: Image.asset(
-                            'assets/waseet.png',
-                            width: 150,
-                            color: Theme.of(context)
-                                .colorScheme
-                                .outline
-                                .withOpacity(0.1),
+                    GestureDetector(
+                      onTap: () {
+                        // show introduction page
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return IntroductionPage();
+                        }));
+                      },
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            bottom: -4,
+                            right: -4,
+                            child: Image.asset(
+                              'assets/waseet.png',
+                              width: 150,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .outline
+                                  .withOpacity(0.1),
+                            ),
                           ),
-                        ),
-                        Image.asset('assets/waseet.png', width: 150),
-                      ],
+                          Image.asset('assets/waseet.png', width: 150),
+                        ],
+                      ),
                     ),
                     Text(
                       'وسيطك الموثوق، أضف واستفد!',

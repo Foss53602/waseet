@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store_design/home_page.dart';
+import 'package:store_design/home_page_landspace.dart';
 import 'color_schemes.g.dart';
 
 void main() {
