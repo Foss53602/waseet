@@ -16,40 +16,101 @@ class _IntroductionPageState extends State<IntroductionPage> {
       body: IntroductionScreen(
         pages: [
           PageViewModel(
-            title: 'تواصل فعّال',
-            body:
-                'يقدم تطبيق وسيط وسيلة سهلة وفعّالة للتواصل بين الأفراد الذين يحتاجون إلى أشياء معينة والذين يمتلكون تلك الأشياء، سواء كانت احتياجات شخصية أو فرص متنوعة',
-            image: Padding(
-              padding: const EdgeInsets.only(top: 64),
-              child: SvgPicture.asset('assets/1.svg', fit: BoxFit.contain),
+            title: '',
+            reverse: true,
+            footer: Center(
+              child: Text('شامل وبسيط', style: TextStyle(fontSize: 28)),
             ),
+            bodyWidget: Text('الدليل الخدمي والتكافلي الأول',
+                style: TextStyle(fontSize: 22)),
+            image: Image.asset('assets/wasit.png'),
           ),
           PageViewModel(
-            title: 'حدد موقعك قبل البدء',
-            body:
-                'بفضل تقنية تحديد المواقع، يمكنك البحث عن العروض والاحتياجات القريبة من موقعك الحالي، مما يجعل عملية البحث والتواصل أكثر ملائمة وفعالية',
-            image: Padding(
-              padding: const EdgeInsets.only(top: 64),
-              child: SvgPicture.asset('assets/3.svg', fit: BoxFit.contain),
+            title: '',
+            reverse: true,
+            footer: Center(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Text('دليلك إلى الجميع', style: TextStyle(fontSize: 18)),
+                  const SizedBox(width: 4),
+                  Text('......'),
+                  const SizedBox(width: 4),
+                  Text('وسيط', style: TextStyle(fontSize: 28)),
+                ],
+              ),
             ),
+            bodyWidget: Column(
+              children: [
+                Text('تجارة او وظيفة',
+                    style: TextStyle(fontSize: 22, wordSpacing: 2)),
+                Text('سياحة او خدمي',
+                    style: TextStyle(fontSize: 22, wordSpacing: 2)),
+                Text('مأجور أو مجاني',
+                    style: TextStyle(fontSize: 22, wordSpacing: 2)),
+              ],
+            ),
+            image: SvgPicture.asset('assets/1.svg', fit: BoxFit.contain),
           ),
           PageViewModel(
-            title: 'تبادل متبادل',
-            body:
-                'يسهّل تطبيق وسيط التبادل المتبادل بين المستخدمين، حيث يمكن لكل فرد أن يقدم مساعدة ويستفيد في آن واحد، ما يساهم في بناء مجتمع مترابط يعتمد على التعاون',
-            image: Padding(
-              padding: const EdgeInsets.only(top: 64),
-              child: SvgPicture.asset('assets/2.svg'),
+            title: '',
+            reverse: true,
+            footer: Center(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Text('دليلك الموثوق', style: TextStyle(fontSize: 18)),
+                  const SizedBox(width: 4),
+                  Text('......'),
+                  const SizedBox(width: 4),
+                  Text('وسيط', style: TextStyle(fontSize: 28)),
+                ],
+              ),
             ),
+            bodyWidget: Column(
+              children: [
+                Text('إعلان بكافة التفاصيل',
+                    style: TextStyle(fontSize: 22, wordSpacing: 2)),
+                Text('تواصل مباشرة مع المعلن',
+                    style: TextStyle(fontSize: 22, wordSpacing: 2)),
+                Text('شهادة ذوي الخبرة',
+                    style: TextStyle(fontSize: 22, wordSpacing: 2)),
+              ],
+            ),
+            image: SvgPicture.asset('assets/2.svg'),
           ),
           PageViewModel(
-            title: 'شارك ما لديك',
-            body:
-                'سواء كنت تمتلك أشياء تريد بيعها، أو تمتلك معرفة أو خبرة ترغب في تقديمها للآخرين، يتيح لك تطبيق وسيط فرصة مشاركة ما تمتلكه بسهولة',
-            image: Padding(
-              padding: const EdgeInsets.only(top: 64),
-              child: SvgPicture.asset('assets/4.svg'),
+            title: '',
+            reverse: true,
+            footer: Center(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.baseline,
+                textBaseline: TextBaseline.alphabetic,
+                children: [
+                  Text('يشاركك الأجر', style: TextStyle(fontSize: 18)),
+                  const SizedBox(width: 4),
+                  Text('......'),
+                  const SizedBox(width: 4),
+                  Text('وسيط', style: TextStyle(fontSize: 28)),
+                ],
+              ),
             ),
+            bodyWidget: Column(
+              children: [
+                Text('إذا كنت ذا يد عليا ولديك صدقة',
+                    style: TextStyle(fontSize: 22, wordSpacing: 2)),
+                Text('سنصلك بمن يستحقها',
+                    style: TextStyle(fontSize: 22, wordSpacing: 2)),
+                Text('ونحرص على خصوصيتكم',
+                    style: TextStyle(fontSize: 22, wordSpacing: 2)),
+              ],
+            ),
+            image: SvgPicture.asset('assets/3.svg'),
           ),
         ],
         onDone: () {

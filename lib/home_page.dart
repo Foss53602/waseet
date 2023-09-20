@@ -31,8 +31,8 @@ class _HomeState extends State<Home> {
       bottomNavigationBar: BottomAppBar(
         child: FilledButton.icon(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Theme.of(context).colorScheme.primary),
+            backgroundColor:
+                MaterialStateProperty.all<Color>(const Color(0xff24e490)),
             foregroundColor: MaterialStateProperty.all<Color>(
                 Theme.of(context).colorScheme.onPrimary),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -101,7 +101,7 @@ class _HomeState extends State<Home> {
                       style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.grey.shade700),
+                          color: Theme.of(context).colorScheme.onBackground),
                     ),
                   ],
                 ),
@@ -152,14 +152,14 @@ class _HomeState extends State<Home> {
                     Row(
                       children: [
                         Icon(Icons.location_on_outlined,
-                            color: Theme.of(context).colorScheme.primary),
+                            color: Color(0xff24e490)),
                         const SizedBox(
                           width: 4,
                         ),
                         Text(
                           'أعـزاز',
                           style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
+                            color: const Color(0xff24e490),
                             letterSpacing: 1,
                             fontSize: 16,
                           ),

@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       locale: const Locale('ar', 'SA'),
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       theme: ThemeData(
           appBarTheme: const AppBarTheme(
-            backgroundColor: Color(0xFFececec),
+            backgroundColor: Color(0xFF9e9e9e),
           ),
           useMaterial3: true,
           colorScheme: lightColorScheme,
@@ -27,6 +27,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: darkColorScheme,
         fontFamily: 'Ciro',
+        appBarTheme: const AppBarTheme(
+        backgroundColor: Color(0xFF636363),
+      ),
       ),
       home: Directionality(textDirection: TextDirection.rtl, child: Home()),
     );
