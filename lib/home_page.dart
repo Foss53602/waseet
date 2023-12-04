@@ -17,9 +17,10 @@ class _HomeState extends State<Home> {
   var replaceCityIcon = true;
 
   var _adsList = [
-    'https://media.istockphoto.com/id/177709534/photo/sold-home-for-sale-real-estate-sign-and-house.jpg?s=612x612&w=0&k=20&c=kPJTPxQykEJ71ZWeFqNH5lWHVA-GhK2-4ppv1sGbtgI=',
-    'https://dragon2000-multisite.s3.eu-west-2.amazonaws.com/wp-content/uploads/sites/274/2022/04/19143130/hollins-hill-car-sales-home-hero-05.jpg',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7V1SwHu27hcmWBuf4HTDOGp-QjNnwKonSOQ&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpnjTwmhztgJgKH4lVHaKfuJAAlEP-Gcw8WbT96Ypioq2feZiytvvBO715ZZNTRoYBn3E&usqp=CAU',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS5UgnThSZglYr2es6ALZG7yghFdNCyYyPRz5B-l0EeKDERCxf7rnQ8RVAYpxcYFVVocU&usqp=CAU',
+    'https://preview.redd.it/n2e7iiqnvhv51.png?auto=webp&s=d781b8125e57ad43fb67558613a3f43e547b0b59',
+    'https://img.freepik.com/premium-vector/flat-design-bag-store-logo-template_852937-4685.jpg',
   ];
 
   var _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -494,7 +495,7 @@ class _HomeState extends State<Home> {
           AspectRatio(
             aspectRatio: 2 / 1,
             child: Swiper(
-              itemCount: 3,
+              itemCount: _adsList.length,
               autoplay: true,
               duration: 1000,
               autoplayDelay: 5000,
@@ -502,7 +503,6 @@ class _HomeState extends State<Home> {
                 return Stack(
                   children: [
                     Container(
-                      margin: const EdgeInsets.all(4),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           image: DecorationImage(
@@ -538,7 +538,119 @@ class _HomeState extends State<Home> {
                           ],
                         ),
                       ),
-                    )
+                    ),
+                    Positioned(
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.black.withOpacity(.8),
+                              Colors.black.withOpacity(.1),
+                            ],
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    child: Text(
+                                      'متجر السعادة',
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white),
+                                    ),
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 8),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        boxShadow: [
+                                          BoxShadow(color: Colors.black45)
+                                        ]),
+                                  ),
+                                  SizedBox(
+                                    height: 4,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.location_on,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                      ),
+                                      SizedBox(
+                                        width: 8,
+                                      ),
+                                      Text(
+                                        'الشارع الرئيسي - الدوار الثاني - الدور الأول',
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                 Row(children: [
+                                   Row(
+                                     children: [
+                                       Icon(
+                                         Icons.phone,
+                                         color: Theme.of(context)
+                                             .colorScheme
+                                             .primary,
+                                       ),
+                                       SizedBox(
+                                         width: 8,
+                                       ),
+                                       Text(
+                                         '+90552336251',
+                                         style: const TextStyle(
+                                           fontWeight: FontWeight.bold,
+                                           color: Colors.white,
+                                         ),
+                                       ),
+                                     ],
+                                   ),
+                                   Spacer(),
+                                   Row(
+                                     children: [
+                                       Icon(
+                                         Icons.alternate_email_sharp,
+                                         color: Theme.of(context)
+                                             .colorScheme
+                                             .primary,
+                                       ),
+                                       SizedBox(
+                                         width: 8,
+                                       ),
+                                       Text(
+                                         'www.wasit.com',
+                                         style: const TextStyle(
+                                           fontWeight: FontWeight.bold,
+                                           color: Colors.white,
+                                         ),
+                                       ),
+                                     ],
+                                   ),
+                                 ],)
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 );
               },
